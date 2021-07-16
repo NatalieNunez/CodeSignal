@@ -1,4 +1,4 @@
-function checkPalindrome(inputString) {
+function palindrome(inputString) {
     let inputArr = inputString.split('');
     let reverseArr = [];
     for (let i = inputArr.length-1; i > 0; i--) {
