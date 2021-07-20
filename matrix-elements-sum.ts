@@ -1,18 +1,15 @@
-function matrixElementsSum(matrix: number[][]) {
-    let total = 0;
-    matrix.forEach(array => console.log(array))
-    // for (let i = 0; i < matrix.length; i++) {
-    //     console.log('matrix[i]', matrix[i])
-    //     for (let x = 0; x < matrix[i].length; x++) {
-    //         console.log('matrix[i][x]', matrix[i][x])
-    //         if (matrix[i][x] === 0) {
-    //             console.log('index that is 0', x)
-    //             let haunted = x;
-    //             console.log('haunted', matrix[i][haunted])
-    //         }
-    //     }
-    // }
-    // total variable
-    // loop through matrix
-    // matrix[i][0]
+function matrixElementsSum(matrix: number[][]): number {
+    let sum = 0;
+    for (let i = 0; i < matrix.length; i++) {
+        for (let j = 0; j < matrix[i].length; j++) {
+            if (matrix[i][j]) {
+                sum += matrix[i][j]
+            } else {
+                for (let roomBeneath = i; roomBeneath < matrix.length; roomBeneath++) {
+                    matrix[roomBeneath][j] = 0;
+                }
+            }
+        }
+    }
+    return sum
 }
