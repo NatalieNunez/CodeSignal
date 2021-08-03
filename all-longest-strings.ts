@@ -1,4 +1,4 @@
-function allLongestStrings(inputArray: string[]): string[] {
+const allLongestStrings = (inputArray: string[]): string[] => {
     let longestStringsArray: string[] = []
     let lengths = inputArray.map(string => string.length)
     const longestLength = Math.max(...lengths)
