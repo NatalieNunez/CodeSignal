@@ -1,27 +1,28 @@
-function sortByHeight(a: number[]): number[] {
-    // loop through array
-        // if a[i] === -1
-        // push the index into an array
-        // remove the value at that index
-
-    // sort the new array without the trees from least to greatest
-    // loop through indeces array
-        // for each index, splice a -1 value at the correct index               into original array
-
-    let indexArray: number[] = []
+function sortByHeight(a: number[]) {
+    const sortByHeightArray = []
 
     for (let i = 0; i < a.length; i++) {
-        if (a[i] === -1) {
-            indexArray.push(i)
-            a.splice(i, 1)
+        if (a[i] !== -1) {
+            sortByHeightArray.push(a[i])
         }
     }
-    console.log('indexArray:', indexArray)
 
-    let sortedPeople = a.sort((a, b) => a - b)
-    for ( let x = 0; x < indexArray.length; x++) {
-        sortedPeople.splice(sortedPeople[x], 0, -1)
+    sortByHeightArray.sort((a, b) => a - b)
+
+    for (let x = 0; x < a.length; x++) {
+        if (a[x] !== -1) {
+            a[x] = 0
+        }
     }
 
-    return sortedPeople
+    for (let z = 0; z < a.length; z++) {
+        if (a[z] === 0) {
+            a.splice(z, 0, sortByHeightArray[0])
+            sortByHeightArray.shift()
+        }
+    }
+
+    return a
 }
+
+// works i believe but is way too slow
