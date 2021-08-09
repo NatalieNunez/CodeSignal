@@ -7,5 +7,9 @@ function addBorder(picture: string[]) {
     for (let i = 0; i < picture.length; i++) {
         picture[i] = `*${picture[i]}*`
     }
-
+    const topBorderLength = picture[0].length
+    const topBorder = '*'.repeat(topBorderLength)
+    picture.unshift(topBorder)
+    picture.push(topBorder)
+    return picture
 }
