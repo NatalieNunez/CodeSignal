@@ -1,9 +1,12 @@
-function arrayChange(inputArray: number[]): number {
-    // initialize variable at 0 to keep count of number of moves
-    // loop through array
-        // if value at current index is greater than value at index + 1
-        // -> then increment value at index + 1 by 1 AND increment count variable
-
-    // dont actually return 0, just trying to please typescript for now
-    return 0
+function arrayChange(array: number[]): number {
+    let moves = 0
+    let increaseBy = 0
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] >= array[i + 1]) {
+            increaseBy = (array[i] - array[i + 1]) + 1
+            array[i + 1] = array[i + 1] + increaseBy
+            moves += increaseBy
+        }
+    }
+    return moves
 }
