@@ -13,7 +13,6 @@ function palindromeRearranging(inputString: string) {
     }
     return true
 }
-// what the heck?
 
 // function palindromeRearranging(inputString) {
 //     return inputString.split('').sort().join('').replace(/(\w)\1/g,'').length < 2;
